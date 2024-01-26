@@ -11,41 +11,226 @@ body{
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;//flex;
+    grid-template-columns: 10% 60% 30%;
+    grid-auto-rows: auto;
+    //flex-wrap: wrap;
+    //justify-content: space-evenly;//center;
+    //align-items: center;
 
 }
 
-.container{
-    width: auto;
-    height: auto;
+.sidebar{
+    background: rgba(0,0,0,0.4); 
+    padding:12.5%;
+}
+
+
+
+header, footer{
+    grid-column: span 3;
+    height: 100px;
+    background:red;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    height:auto;
+    //align-items: center;
+    //padding: auto;
+}
+
+.container, .calendar_container{
     padding: 2px;
     border: 1px solid;
 
 }
 
-tr, td, th, table{
-    //width: auto;
+.container, .prev_calendar, .next_calendar{
+    display: none;
+}
+
+.calendar_container{
+    position: absolute;
+    top: 0;
+    //left: -100%; /* Initially off-screen to the left */
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    transition: all 0.5s ease; 
+}
+
+.start_left{
+    left:-100%;
+    z-index: 999;
+}
+
+.start_right{
+    left:100%;
+    z-index: 999;
+}
+
+.visible{
+    left: 0;
+    //z-index:999;
+}
+
+.invisible_right{
+    position: absolute;
+    top: 0;
+    left: 100% !important; /* Initially off-screen to the right */
+    //right: -100%; /* Initially off-screen to the right */
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    //opacity: 0;
+    transition: left 0.5s ease; 
+}
+
+.invisible_left{
+    position: absolute;
+    top: 0;
+    left: -100% !important; /* Initially off-screen to the left */
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    //opacity: 0;
+    transition: left 0.5s ease; 
+}
+.overall_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width:44%;
+    height:65.75vh;
+    margin:auto;
+    border:1px solid;
+}
+
+table, .calendar_grid{
+    display: block;
+    //position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    //height:max-content;
+    
+}
+
+.daycell{
+    color:black;
+    font-size: 15px;
+    background: none;
+    opacity: 1;
+}
+
+
+     .currentcell{
+        color: red;
+       &:hover{
+           cursor:pointer;
+           background: rgba(0, 0, 255, 0.5);
+           transition: all 2s ease;
+    
+       }
+    }
+
+    .oddcell{
+        font-size: 12px;
+        color:white;
+        background: rgba(0,0,0,0.4);
+        opacity: 0.4;
+    }
+
+    .selected{
+        background: rgba(0,0,0,0.3);
+    }
+
+    label{
+        display: inline-block;
+        //border: 2px solid;
+        //border-collapse: collapse;
+        min-width: 110px;
+        //margin-right:10px;
+        margin:5px 10px 5px auto;
+    }
+
+    input{
+        width:120px;
+        display: inline-block;
+        margin: 5px auto;
+        font-size: 15px;
+    }
+
+    .form_btns{
+        margin:5px auto;
+    }
+
+    .todo{
+        padding: 20px;
+        width: auto;
+        height:50vh;
+        border: 2px solid;
+        border-radius: 30px;
+        color:white;
+        background: green;//linear-gradient(90deg, rgba(25, 25, 255, 0.2), rgba(25, 25, 255, 0.2), rgba(25, 25, 255, 0.2));
+    }
+
+    button{
+        padding: 3px 5px;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    .expand{
+         transform: scale(5.5);
+        //position: absolute;
+        margin: auto;
+        //display: flex;
+        //.top:0;
+        //left:0px;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        width:100%;
+        //height:100%;
+        z-index: 2 ;
+        transition: all 3s ease;
+    }
+
+tr, td, th, table, .newrow, .day_row, .calendar_grid, .label_row .label_weekday{
+    width: auto;
     //padding:3px;
     //font-size: 22px;
+    //position: relative;
     border: 1px solid;
     text-align: center;
-    overflow: hidden;
+    //overflow: hidden;
 }
-td, th{
+
+
+td, th, .label_weekday{
     width: 50px;
     height:50px;
     padding: auto;
-    overflow: hidden;
+    //overflow: hidden;
 }
-.fulldate{
+.fulldate, .datelabel{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    font-size: 35px;
 }
 .nav{
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    width: 100%;
+    ///align-items: center;
     i{
         width:40px;
         height:40px;
@@ -63,3 +248,4 @@ td, th{
         }
     }
 }
+

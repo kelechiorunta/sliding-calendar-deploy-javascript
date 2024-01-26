@@ -6,33 +6,77 @@
     <title>Table Calendar</title>
     <link rel="stylesheet" href="tableCalendar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer type="module" src="tableCalendar.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="nav">
-            <i class="fas fa-backward prev"></i>
-            <h1 class="fulldate"></h1>
-            <i class="fas fa-forward next"></i>
+    <header class="main-header"></header>
+    <section class="left sidebar"></section>
+
+    <section class="main">
+            <button class="prev_calendar" type="button">Prev Calendar</button>
+            <button class="next_calendar" type="button">Next Calendar</button>
+        <div class="container">
+            <div class="nav">
+                <i class="fas fa-backward prev"></i>
+                <h1 class="fulldate"></h1>
+                <i class="fas fa-forward next"></i>
+            </div>
+            <table class="calendar_grid">
+                <tr class="label_row">
+                    <th class="label_weekday">Sun</th>
+                    <th class="label_weekday">Mon</th>
+                    <th class="label_weekday">Tues</th>
+                    <th class="label_weekday">Wed</th>
+                    <th class="label_weekday">Thur</th>
+                    <th class="label_weekday">Fri</th>
+                    <th class="label_weekday">Sat</th>
+                </tr>
+                <tr id='1'class="day_row"></tr>
+                <tr id='2'class="day_row"></tr>
+                <tr id='3'class="day_row"></tr>
+                <tr id='4'class="day_row"></tr>
+                <tr id='5'class="day_row"></tr>
+                <tr id='6'class="day_row"></tr>
+                <tr id='7'class="day_row"></tr>
+            </table>
+            
         </div>
-        <table>
-            <tr class="label_row">
-                <th class="label_weekday">Sun</th>
-                <th class="label_weekday">Mon</th>
-                <th class="label_weekday">Tues</th>
-                <th class="label_weekday">Wed</th>
-                <th class="label_weekday">Thur</th>
-                <th class="label_weekday">Fri</th>
-                <th class="label_weekday">Sat</th>
-            </tr>
-            <tr id='1'class="day_row"></tr>
-            <tr id='2'class="day_row"></tr>
-            <tr id='3'class="day_row"></tr>
-            <tr id='4'class="day_row"></tr>
-            <tr id='5'class="day_row"></tr>
-            <tr id='6'class="day_row"></tr>
-            <tr id='7'class="day_row"></tr>
-        </table>
-    </div>
+        <div class="overall_container">
+            
+        </div>
+    </section>
+    
+    
+    <section class="right sidebar">
+        <div class="todo">
+            <form class="todo_form" action="todo.html" method="get">
+                <div>
+                    <label for="input_date">Start Date:</label>
+                    <input type="text" name="Begin Date" id="input_currentdate">
+                </div>
+                <div>
+                    <label for="reminder_date">Reminder Date:</label>
+                    <input type="date" name="Reminder date" id="input_reminderdate">
+                </div>
+                <div>
+                    <label for="input_reminder">Enter Reminder:</label>
+                    <input name="input_reminder" placeholder="Enter a Reminder" type="text">
+                </div>
+                <div>
+                    <label for="desc_reminder">Description:</label>
+                    <textarea name="desc_reminder" id="desc"  placeholder="Enter a Description" cols="30" rows="5"></textarea>
+                </div>
+                <div class="form_btns">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <!-- <button class="create_calendar" type="button">Create Calendar</button> -->
+            </form>
+        </div>
+    </section>
+
+    <footer></footer>
+    
 </body>
 </html>
