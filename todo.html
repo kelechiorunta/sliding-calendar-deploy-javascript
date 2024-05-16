@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th,tr,td{
+            border: 1px solid;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            text-align: center;
+            padding:3px;
+           
+        }
+        /* table{width:100%;} */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="results">
+            <tr class="header">
+                <th class="firstdate">FirstDate</th>
+                <th class="lastdate">LastDate</th>
+                <th class="reminder">Reminder</th>
+                <th class="reminder_desc">Description</th>
+            </tr>
+            <tr class="body_row">
+
+            </tr>
+        </table>
+       
+    </div>
+    <a href="/index.html">Back to Calendar</a>
+    <script>
+        const resultlist = document.querySelector('.results')
+        const body_data = document.querySelector('.body_row')
+
+        new URLSearchParams(window.location.search).forEach((value, name, paramstring)=>{
+
+            
+            var br = document.createElement('br')
+            for (let id_row = 0; id_row<name.length; id_row++){
+                var row_data = document.createElement('td')
+                row_data.setAttribute('class', 'row_data')
+                row_data.setAttribute('id', `${id_row}`)
+            }
+            body_data.append(row_data)
+            const header_table = document.querySelectorAll('.row_data')
+            console.log(header_table)
+            header_table.forEach((h,i)=>{ 
+                (i===0 && (name==="Begin Date")) &&
+                (
+                (h.innerText = (`${paramstring.get("Begin Date")}`))
+                );
+
+                (i===1 ) &&
+                (
+                (h.innerText = (`${new Date(paramstring.get("Reminder date")).toDateString()}`))
+                );
+
+                (i===2 ) &&
+                (
+                (h.innerText = (`${paramstring.get("input_reminder")}`))
+                );
+
+                (i===3 ) &&
+                (
+                (h.innerText = (`${paramstring.get("desc_reminder")}`))
+                );
+
+                //body_data.append(h);
+                console.log(h)
+                console.log(body_data)
+            })
+            
+        })
+    </script>
+</body>
+</html>
