@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
 *, *::before, *::after{
     margin:0;
     padding:0;
@@ -5,6 +8,7 @@
     //border:1px solid;
     border-collapse: collapse;
     transform-style: preserve-3d;
+    
 }
 
 body{
@@ -12,7 +16,7 @@ body{
     height: 100vh;
     overflow: hidden;
     display: grid;//flex;
-    grid-template-columns: 10% 60% 30%;
+    grid-template-columns: 100%;
     grid-auto-rows: auto;
     //flex-wrap: wrap;
     //justify-content: space-evenly;//center;
@@ -29,8 +33,12 @@ body{
 
 header, footer{
     grid-column: span 3;
-    height: 100px;
+    height: auto;
     background:red;
+}
+
+.main-content{
+    display: flex;
 }
 
 .main{
@@ -44,6 +52,8 @@ header, footer{
 .container, .calendar_container{
     padding: 2px;
     border: 1px solid;
+    font-family: 'Teachers', sans-serif;
+    //width: 52vh;
 
 }
 
@@ -56,7 +66,7 @@ header, footer{
     top: 0;
     //left: -100%; /* Initially off-screen to the left */
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    //height: 50vh; /* Full viewport height */
     background-color: #f4f4f4;
     transition: all 0.5s ease; 
 }
@@ -82,7 +92,7 @@ header, footer{
     left: 100% !important; /* Initially off-screen to the right */
     //right: -100%; /* Initially off-screen to the right */
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 50vh; /* Full viewport height */
     background-color: #f4f4f4;
     //opacity: 0;
     transition: left 0.5s ease; 
@@ -93,20 +103,26 @@ header, footer{
     top: 0;
     left: -100% !important; /* Initially off-screen to the left */
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 50vh; /* Full viewport height */
     background-color: #f4f4f4;
     //opacity: 0;
     transition: left 0.5s ease; 
 }
+
+.hamburger-menu{
+    display: none;
+}
+
 .overall_container{
     position: relative;
     display: flex;
     justify-content: center;
     overflow: hidden;
-    width:44%;
-    height:65.75vh;
+    width:25%;
+    height:57.25vh;
     margin:auto;
     border:1px solid;
+    margin-top: 6vh;
 }
 
 table, .calendar_grid{
@@ -224,8 +240,86 @@ td, th, .label_weekday{
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
 }
+
+.secondary-nav{
+    width: 70%;
+    display: flex;
+    column-gap: 4px;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: white;
+    list-style-type: none;
+    li a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        -webkit-text-stroke: 1px #0f1304;
+    }
+    
+    li a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        background: white;
+        min-width: 0;
+        height: 2px;
+        transition: min-width 1s ease;
+    }
+    
+    li a:hover::before {
+        min-width: 100%;
+    }
+}
+
+.header-nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 2px 20px;
+    background-image: url('./calendar.jpg');
+    background-size: cover;
+    background-position: -60vh -100vh;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    //background: linear-gradient(90deg, rgba(26, 26, 40, 0.7), rgba(16, 16, 31, 0.7), rgba(11, 11, 22, 0.7));
+}
+footer{
+    padding: 2px 20px;
+    background-image: url('./calendar.jpg');
+    background-size: cover;
+    //background-position: -60vh -100vh;
+}
+
+.left{
+    padding: 25px;
+    width: 250px;
+    .side-logo{
+        width: 200px;
+        border-radius: 10px;
+    }
+    
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav{
     display: flex;
     justify-content: space-evenly;
@@ -238,7 +332,7 @@ td, th, .label_weekday{
         display:flex;
         justify-content: center;
         align-items: center;
-        font-size:35px;
+        font-size:25px;
         border-radius: 10px;
         &:hover{
             cursor:pointer;
@@ -246,6 +340,98 @@ td, th, .label_weekday{
             color: red;
             transition: all 1s ease;
         }
+    }
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+.main-content{
+    width:20vh;
+}
+
+    @media only screen and (min-width: 768px) and (max-width: 1189px) {
+        body{
+            width:100%;
+        }
+        .main-content{
+            width:100%;
+        }
+
+        .main{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left:2px;
+        }
+        .container, .overall_container, .calendar_grid{
+            //padding-left: 3px;
+            width: 51.65vh;
+            transform: scale(1);
+        }
+        .overall_container{
+            margin-top: 6vh;
+        }
+}
+
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+    body{
+        width:100%;
+    }
+    .main-content{
+        width:100%;
+    }
+
+    .main{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left:2px;
+    }
+    .container, .overall_container, .calendar_grid{
+        width: 51.65vh;
+        transform: scale(1);
+    }
+    .overall_container{
+        margin-top: 6vh;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    .secondary-nav{
+        position: unset;
+        display: none;
     }
 }
 

@@ -10,73 +10,105 @@
     <script defer type="module" src="index.js"></script>
 </head>
 <body>
-    <header class="main-header"></header>
-    <section class="left sidebar"></section>
+    <header class="main-header">
+        <nav class="header-nav">
+            <img class="logo" src="./calendar.png" alt="calendar logo" />
+            <ul class="secondary-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Appointments">Appointments</a></li>
+                <li><a href="#Contacts">Contacts</a></li>
+            </ul>
+            <svg class="hamburger-menu" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" fill="white" width="32px" height="32px"><path d="M 8 5 C 6.3550302 5 5 6.3550302 5 8 C 5 9.6449698 6.3550302 11 8 11 L 24 11 C 25.64497 11 27 9.6449698 27 8 C 27 6.3550302 25.64497 5 24 5 L 8 5 z M 8 7 L 24 7 C 24.56503 7 25 7.4349698 25 8 C 25 8.5650302 24.56503 9 24 9 L 8 9 C 7.4349698 9 7 8.5650302 7 8 C 7 7.4349698 7.4349698 7 8 7 z M 8 13 C 6.3550302 13 5 14.35503 5 16 C 5 17.64497 6.3550302 19 8 19 L 24 19 C 25.64497 19 27 17.64497 27 16 C 27 14.35503 25.64497 13 24 13 L 8 13 z M 8 15 L 24 15 C 24.56503 15 25 15.43497 25 16 C 25 16.56503 24.56503 17 24 17 L 8 17 C 7.4349698 17 7 16.56503 7 16 C 7 15.43497 7.4349698 15 8 15 z M 8 21 C 6.3550302 21 5 22.35503 5 24 C 5 25.64497 6.3550302 27 8 27 L 24 27 C 25.64497 27 27 25.64497 27 24 C 27 22.35503 25.64497 21 24 21 L 8 21 z M 8 23 L 24 23 C 24.56503 23 25 23.43497 25 24 C 25 24.56503 24.56503 25 24 25 L 8 25 C 7.4349698 25 7 24.56503 7 24 C 7 23.43497 7.4349698 23 8 23 z"/></svg>
+        </nav>
+    </header>
 
-    <section class="main">
-            <button class="prev_calendar" type="button">Prev Calendar</button>
-            <button class="next_calendar" type="button">Next Calendar</button>
-        <div class="container">
-            <div class="nav">
-                <i class="fas fa-backward prev"></i>
-                <h1 class="fulldate"></h1>
-                <i class="fas fa-forward next"></i>
+    <div class="'main-content">
+        <!-- <section class="left sidebar">
+            <img class="side-logo" src="./calendar_side.jpg" alt="calendar logo" />
+        </section> -->
+
+        <section class="main">
+                <button class="prev_calendar" type="button">Prev Calendar</button>
+                <button class="next_calendar" type="button">Next Calendar</button>
+            <div class="container">
+                <div class="nav">
+                    <i class="fas fa-backward prev"></i>
+                    <h1 class="fulldate"></h1>
+                    <i class="fas fa-forward next"></i>
+                </div>
+                <table class="calendar_grid">
+                    <tr class="label_row">
+                        <th class="label_weekday">Sun</th>
+                        <th class="label_weekday">Mon</th>
+                        <th class="label_weekday">Tues</th>
+                        <th class="label_weekday">Wed</th>
+                        <th class="label_weekday">Thur</th>
+                        <th class="label_weekday">Fri</th>
+                        <th class="label_weekday">Sat</th>
+                    </tr>
+                    <tr id='1'class="day_row"></tr>
+                    <tr id='2'class="day_row"></tr>
+                    <tr id='3'class="day_row"></tr>
+                    <tr id='4'class="day_row"></tr>
+                    <tr id='5'class="day_row"></tr>
+                    <tr id='6'class="day_row"></tr>
+                    <tr id='7'class="day_row"></tr>
+                </table>
+                
             </div>
-            <table class="calendar_grid">
-                <tr class="label_row">
-                    <th class="label_weekday">Sun</th>
-                    <th class="label_weekday">Mon</th>
-                    <th class="label_weekday">Tues</th>
-                    <th class="label_weekday">Wed</th>
-                    <th class="label_weekday">Thur</th>
-                    <th class="label_weekday">Fri</th>
-                    <th class="label_weekday">Sat</th>
-                </tr>
-                <tr id='1'class="day_row"></tr>
-                <tr id='2'class="day_row"></tr>
-                <tr id='3'class="day_row"></tr>
-                <tr id='4'class="day_row"></tr>
-                <tr id='5'class="day_row"></tr>
-                <tr id='6'class="day_row"></tr>
-                <tr id='7'class="day_row"></tr>
-            </table>
-            
-        </div>
-        <div class="overall_container">
-            
-        </div>
-    </section>
-    
-    
-    <section class="right sidebar">
-        <div class="todo">
-            <form class="todo_form" action="todo.html" method="get">
-                <div>
-                    <label for="input_date">Start Date:</label>
-                    <input type="text" name="Begin Date" id="input_currentdate">
-                </div>
-                <div>
-                    <label for="reminder_date">Reminder Date:</label>
-                    <input type="date" name="Reminder date" id="input_reminderdate">
-                </div>
-                <div>
-                    <label for="input_reminder">Enter Reminder:</label>
-                    <input name="input_reminder" placeholder="Enter a Reminder" type="text">
-                </div>
-                <div>
-                    <label for="desc_reminder">Description:</label>
-                    <textarea name="desc_reminder" id="desc"  placeholder="Enter a Description" cols="30" rows="5"></textarea>
-                </div>
-                <div class="form_btns">
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
-                </div>
-                <!-- <button class="create_calendar" type="button">Create Calendar</button> -->
-            </form>
-        </div>
-    </section>
+            <div class="overall_container">
+                 
+            </div>
+        </section>
+        
+        
+        <!-- <section class="right sidebar">
+            <div class="todo">
+                <form class="todo_form" action="todo.html" method="get">
+                    <div>
+                        <label for="input_date">Start Date:</label>
+                        <input type="text" name="Begin Date" id="input_currentdate">
+                    </div>
+                    <div>
+                        <label for="reminder_date">Reminder Date:</label>
+                        <input type="date" name="Reminder date" id="input_reminderdate">
+                    </div>
+                    <div>
+                        <label for="input_reminder">Enter Reminder:</label>
+                        <input name="input_reminder" placeholder="Enter a Reminder" type="text">
+                    </div>
+                    <div>
+                        <label for="desc_reminder">Description:</label>
+                        <textarea name="desc_reminder" id="desc"  placeholder="Enter a Description" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="form_btns">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                    <button class="create_calendar" type="button">Create Calendar</button> -->
+                <!-- </form>
+            </div>
+        </section> -->
+    </div> 
 
-    <footer></footer>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Calendar Webpage. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <img src="./icons8-facebook-48.png" alt="Facebook">
+
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"/><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><path fill="#8585cc" d="M30.5,38.5c4.418,0,8-3.582,8-8v-21c0-4.418-3.582-8-8-8h-21c-4.418,0-8,3.582-8,8v21 c0,4.418,3.582,8,8,8H30.5z"/><path fill="#8d8dd8" d="M3.4,4.331C2.217,5.726,1.5,7.528,1.5,9.5v21c0,4.418,3.582,8,8,8h21c4.418,0,8-3.582,8-8v-21 c0-0.503-0.052-0.992-0.141-1.469C32.135,4.22,24.832,2,17,2C12.229,2,7.657,2.832,3.4,4.331z"/><path fill="#bd82f4" d="M1.505,9.404C1.504,9.437,1.5,9.468,1.5,9.5v21c0,4.418,3.582,8,8,8h21c4.418,0,8-3.582,8-8V12.897 C32.439,8.56,25.021,6,17,6C11.465,6,6.22,7.226,1.505,9.404z"/><path fill="#ed73f4" d="M1.5,13.88V30.5c0,4.418,3.582,8,8,8h21c4.418,0,8-3.582,8-8V17.981C32.724,13.013,25.217,10,17,10 C11.394,10,6.124,11.414,1.5,13.88z"/><path fill="#f97dcd" d="M17,14c-5.705,0-11.014,1.664-15.5,4.509V30.5c0,4.418,3.582,8,8,8h21c4.418,0,8-3.582,8-8v-6.935 C33.194,17.698,25.534,14,17,14z"/><path fill="#fc9c95" d="M17,18c-5.861,0-11.237,2.033-15.5,5.411V30.5c0,4.418,3.582,8,8,8h21c4.418,0,8-3.582,8-8v-0.238 C34.143,22.925,26.152,18,17,18z"/><path fill="#ffac99" d="M17,22c-6.145,0-11.66,2.651-15.5,6.859V30.5c0,4.418,3.582,8,8,8h21c2.465,0,4.668-1.117,6.136-2.87 C33.648,27.674,25.999,22,17,22z"/><path fill="#ffc49c" d="M30.5,38.5c0.957,0,1.87-0.177,2.721-0.485C31.087,31.065,24.649,26,17,26 c-6.186,0-11.592,3.309-14.566,8.248C3.778,36.777,6.437,38.5,9.5,38.5H30.5z"/><path fill="#ffde8d" d="M17,30c-5.137,0-9.573,2.984-11.684,7.309C6.535,38.06,7.964,38.5,9.5,38.5h19.683 C27.35,33.542,22.595,30,17,30z"/><path fill="#fff69f" d="M17,34c-3.319,0-6.193,1.813-7.753,4.487C9.332,38.49,9.415,38.5,9.5,38.5h15.26 C23.203,35.818,20.324,34,17,34z"/><path fill="#8b75a1" d="M31,2c3.86,0,7,3.14,7,7v22c0,3.86-3.14,7-7,7H9c-3.86,0-7-3.14-7-7V9c0-3.86,3.14-7,7-7H31 M31,1H9 C4.582,1,1,4.582,1,9v22c0,4.418,3.582,8,8,8h22c4.418,0,8-3.582,8-8V9C39,4.582,35.418,1,31,1L31,1z"/><path fill="#fff" d="M27.5 11A1.5 1.5 0 1 0 27.5 14A1.5 1.5 0 1 0 27.5 11Z"/><path fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M20 14A6 6 0 1 0 20 26A6 6 0 1 0 20 14Z"/><path fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M33,14.5c0-4.142-3.358-7.5-7.5-7.5 c-2.176,0-8.824,0-11,0C10.358,7,7,10.358,7,14.5c0,2.176,0,8.824,0,11c0,4.142,3.358,7.5,7.5,7.5c2.176,0,8.824,0,11,0 c4.142,0,7.5-3.358,7.5-7.5C33,23.324,33,16.676,33,14.5z"/></svg>
+                    <!-- <img src="path-to-instagram-icon.svg" alt="Instagram"> -->
+                </a>
+            </div>
+        </div>
+    </footer>
     
 </body>
 </html>
